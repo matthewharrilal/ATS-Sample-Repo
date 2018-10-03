@@ -1,8 +1,8 @@
-import FluentSQLite
+import FluentPostgreSQL
 import Vapor
 
 /// A single entry of a Todo list.
-final class Unconfigured: SQLiteModel {
+final class Unconfigured: PostgreSQLModel {
     // Better Do This: Configurable Class ==> Let's get some properties!
     
     
