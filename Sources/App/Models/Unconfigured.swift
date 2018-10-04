@@ -2,17 +2,25 @@ import FluentPostgreSQL
 import Vapor
 
 /// A single entry of a Todo list.
-final class Unconfigured: PostgreSQLModel {
-    // Better Do This: Configurable Class ==> Let's get some properties!
+final class MakeSchool: PostgreSQLModel {
+    var students: Int // A count of students
+    var instructors: Int
+    var hasBuilding: Bool
+    var isOfficial: Bool
     
+    init(students: Int, instructors: Int, hasBuilding: Bool, isOfficial: Bool) {
+        self.students = students
+        self.instructors = instructors
+        self.hasBuilding = hasBuilding
+        self.isOfficial = isOfficial
+    }
     
 }
 
-/// Better do this: Migrate Uncofigured model as schema
+extension MakeSchool: Migration { }
 
+/// Allows `MakeSchool` to be encoded to and decoded from HTTP messages.
+extension MakeSchool: Content { }
 
-/// Allows `Todo` to be encoded to and decoded from HTTP messages.
-extension Todo: Content { }
-
-/// Allows `Todo` to be used as a dynamic parameter in route definitions.
-extension Todo: Parameter { }
+/// Allows `MakeSchool` to be used as a dynamic parameter in route definitions.
+extension MakeSchool: Parameter { }

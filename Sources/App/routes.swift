@@ -6,9 +6,22 @@ public func routes(_ router: Router) throws {
     router.get { req in
         return "It works!"
     }
+    router.get("ogErik") { (req)  in
+        return "Erik Perez for Perezident"
+    }
+    
+    router.get("adriana") { (req)  in
+        return "Adriana is an instructor"
+    }
+    
+    router.get("egon") { (req) in
+        return "Egon Targarayean"
+    }
+    
     
    
 
     // Better do this: Configure your controller's routes
+    let makeSchool = 
     
 }
